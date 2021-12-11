@@ -1,19 +1,31 @@
 
 export function renderSuperhero(heroData) {
-    const div = document.createElement('div');
-    const heroProfile = document.createElement('p');
-    const alterEgoEl = document.createElement('p');
+    const heroDiv = document.createElement('div');
+    const heroName = document.createElement('p');
+    const heroLocation = document.createElement('p');
+    const heroSuperpower = document.createElement('p');
 
-    heroProfile.classList.add('hero');
-    alterEgoEl.classList.add('alter-ego');
+    const alterEgoDiv = document.createElement('div');
+    const alterName = document.createElement('p');
+    const alterJob = document.createElement('p');
+
+    heroDiv.classList.add('hero');
+    alterEgoDiv.classList.add('alter');
+
+    heroName.textContent = heroData.name;
+    heroLocation.textContent = heroData.location;
+    heroSuperpower.textContent = heroData.superpower;
+    alterName.textContent = heroData.alterEgo.name;
+    alterJob.textContent = heroData.alterEgo.job;
 
     
 
-    heroProfile.textContent = heroData.name;
-    alterEgoEl.textContent = `Alter Ego: ${heroData.alterEgo}`;
+    alterEgoDiv.append(alterName, alterJob);
 
-    div.append(heroProfile, alterEgoEl);
+    heroDiv.append(heroName, heroLocation, heroSuperpower, alterEgoDiv);
 
-    return div;
+    
+    return heroDiv;
+    
 }
 
